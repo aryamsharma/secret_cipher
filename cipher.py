@@ -27,12 +27,12 @@ class CF:
 
     def dignostic(self):
         text = "The 1 Quick Brown fox Jumped over The 2 lazy Dogs -_- !?\\ WOW"
-        print(f"seed     : {self.seed}")
+        print("\33[92m" + f"seed     : {self.seed}")
         print(f"chars    : {''.join(self.chars)}")
         print(f"key      : {''.join(self.key)}")
         print(f"org      : {text}")
         print(f"encrypted: {cipher.encrypt(text)}")
-        print(f"decrypted: {cipher.decrypt(cipher.encrypted)}")
+        print(f"decrypted: {cipher.decrypt(cipher.encrypted)}" + "\33[0m")
         return text
 
     def log(self, text, mode):
@@ -67,11 +67,11 @@ if __name__ == "__main__":
 
         if to_do == "e":
             text = input("Enter str: ").strip()
-            print(f"encrypted: {cipher.encrypt(text)}")
+            print("\33[91m" + f"encrypted: {cipher.encrypt(text)}" + "\33[0m")
 
         elif to_do == "d":
             text = input("Enter str: ").strip()
-            print(f"decrypted: {cipher.decrypt(text)}")
+            print("\33[92m" + f"decrypted: {cipher.decrypt(text)}" + "\33[0m")
 
         elif to_do == "di":
             text = cipher.dignostic()
