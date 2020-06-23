@@ -33,7 +33,7 @@ class CF:
         print(f"org      : {text}")
         print(f"encrypted: {cipher.encrypt(text)}")
         print(f"decrypted: {cipher.decrypt(cipher.encrypted)}")
-        cipher.log(text, "di")
+        return text
 
     def log(self, text, mode):
         to_write = [
@@ -60,24 +60,24 @@ class CF:
 
 
 if __name__ == "__main__":
-    to_do = input("(E)ncrypt / (D)ecrypt / (Di)gnostic\n").lower().strip()
+    while True:
+        to_do = input("(E)ncrypt / (D)ecrypt / (Di)gnostic\n").lower().strip()
 
-    cipher = CF()
+        cipher = CF()
 
-    if to_do == "e":
-        text = input("Enter str: ").strip()
-        print(f"encrypted: {cipher.encrypt(text)}")
+        if to_do == "e":
+            text = input("Enter str: ").strip()
+            print(f"encrypted: {cipher.encrypt(text)}")
 
-    elif to_do == "d":
-        text = input("Enter str: ").strip()
-        print(f"decrypted: {cipher.decrypt(text)}")
+        elif to_do == "d":
+            text = input("Enter str: ").strip()
+            print(f"decrypted: {cipher.decrypt(text)}")
 
-    elif to_do == "di":
-        cipher.dignostic()
-        exit()
+        elif to_do == "di":
+            text = cipher.dignostic()
 
-    else:
-        print("Wrong input please execute again")
-        exit()
+        else:
+            print("Wrong input please execute again")
+            continue
 
-    cipher.log(text, to_do)
+        cipher.log(text, to_do)
