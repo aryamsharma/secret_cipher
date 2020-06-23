@@ -6,7 +6,6 @@ import string
 class CF:
     def __init__(self):
         self.chars = [i for i in string.printable[:-5]]
-        del self.chars[-10]
         self.key = self.chars[:]
         self.seed = time.strftime("%Y%m%d")
         random.seed(self.seed)
@@ -27,7 +26,7 @@ class CF:
         return self.decrypted
 
     def dignostic(self):
-        text = "The 1 Quick Brown fox Jumped over The 2 lazy Dogs -_- !?// WOW"
+        text = "The 1 Quick Brown fox Jumped over The 2 lazy Dogs -_- !?\\ WOW"
         print(f"seed     : {self.seed}")
         print(f"chars    : {''.join(self.chars)}")
         print(f"key      : {''.join(self.key)}")
